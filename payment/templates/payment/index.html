@@ -1,0 +1,130 @@
+{% extends "pages/base.html" %}
+{% load static %}
+{% block content %}
+    <!-- Contact Section -->
+    <br>
+    <br>
+    <section id="#register">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    {% if plan_id == 'T' %}
+                    <h2>领取试用套餐</h2>
+                    {% elif try_is_invalid %}
+                    <h2>提示</h2>
+                    {% else %}
+                    <h2>激活码</h2>
+                    {% endif %}
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+                    {% if try_is_invalid %}
+                    <p>每人只能领用一次试用套餐哦～您已经领取过啦</p>
+                    {% else %}
+
+                    <form action="" method="post" name="testpassword" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                {% if plan_id == 'T' %}
+                                <p>领取3小时试用</p>
+                                <input type="hidden" name="testpassword" value="try">
+                                {% else %}
+                                <label for="testpassword">激活码</label>
+                                <input type="text" class="form-control" placeholder="激活码" name="testpassword" id="testpassword" required data-validation-required-message="请输入密码">
+                                <p class="help-block text-danger"></p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div id="success"></div>
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+                                {% if plan_id == 'T' %}
+                                <button type="submit" class="btn btn-success btn-lg">确定</button>
+                                {% else %}
+                                <button type="submit" class="btn btn-success btn-lg">提交</button>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </form>
+                    {% endif %}
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+                    {% if plan_id == 'T' %}
+                    <a href="/payment/M">已有激活码，直接激活套餐</a><br>
+                    {% endif %}
+                    <a href="">前往某宝咨询（暂时关闭，等待更新）</a><br>
+                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">服务条款</a><br>
+
+                </div>
+            </div>
+            <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal">
+                        <div class="lr">
+                            <div class="rl">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <div class="modal-body">
+                                    <h2>服务条款</h2>
+                                    <hr class="star-primary">
+                                    <strong class="text-left">>【使用须知】</strong>
+                                    <ol class="text-left">
+                                        <li>
+                                            请遵守所在地区的法律法规
+                                        </li>
+                                        <li>
+                                            请勿与他人分享共用，或使用迅雷等软件大流量上传下载。
+                                        </li>
+                                        <li>
+                                            需要进行支付、密码登陆等重要操作时，务必谨慎甄别所上网站真实性。任何问题本站概不负责
+                                        </li>
+                                        <li>
+                                            请使用真实邮箱注册，万一发生不可抗力因素，本站只通过您的注册邮箱联系退款事宜
+                                        </li>
+                                        <li>
+                                            重大时间点（如大会）本站可能会停止运营，届时将会按关停总时长补充到您的套餐剩余时间中，购买即表示接受并理解
+                                        </li>
+
+                                    </ol>
+                                    <strong class="text-left">>【我们承诺】</strong>
+                                    <ol class="text-left">
+                                        <li>
+                                            如遇不可抗力因素，按套餐剩余时间退款
+                                        </li>
+                                        <li>
+                                            您的账号密码被加密保存，不进行广告推送
+                                        </li>
+                                        <li>
+                                            您的魔法上网数据被加密
+                                        </li>
+
+
+                                    </ol>
+
+                                    <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+{% endblock content %}

@@ -1,0 +1,124 @@
+﻿{% extends "dashboard/base.html" %}
+{% load static %}
+
+{% block nav2 %}
+	   <!--/. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+
+                    <li>
+                        <a class="waves-effect waves-dark" href="/accounts/profile"><i class="fa fa-dashboard"></i> 后台面板</a>
+                    </li>
+                    <li>
+                        <a href="/accounts/profile/setting" class="active-menu waves-effect waves-dark"><i class="fa fa-gear"></i> 设置</a>
+                    </li>
+					<li>
+                        <a href="/accounts/profile/orders" class="waves-effect waves-dark"><i class="fa fa-shopping-cart"></i> 订购记录</a>
+                    </li>
+                    <li>
+                        <a href="/accounts/profile/feedback" class="waves-effect waves-dark"><i class="fa fa-edit"></i> 意见反馈</a>
+                    </li>
+
+                    <li>
+                        <a href="/accounts/profile/notice" class="waves-effect waves-dark"><i class="fa fa-table"></i> 公告</a>
+                    </li>
+                </ul>
+
+            </div>
+
+        </nav>
+        <!-- /. NAV SIDE  -->
+{% endblock nav2 %}
+
+{% block content %}
+
+
+		  <div class="header"> 
+                        <h1 class="page-header">
+                             设置
+                        </h1>
+						<ol class="breadcrumb">
+                      <li><a href="#">主页</a></li>
+					  <li><a href="#">设置</a></li>
+					  <li class="active">详情</li>
+					</ol> 
+									
+		</div>
+		
+            <div id="page-inner">
+              <div class="row">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-action">
+                            Shadowsocks连接密码
+                        </div>
+                        <div class="card-content">
+                         	<form class="col s12">
+								  <div class="row">
+                                        <div class="input-field col s12">
+                                          <input disabled value="{{ order_sspwd }}" id="disabled" type="text" class="validate">
+                                          <label for="disabled"></label>
+                                        </div>
+                                  </div>
+
+                            </form>
+								
+								<form action="/accounts/profile/setting/sspwd/" method="post" name="newsspwd" id="newsspwd" class="col s12">
+
+								  <div class="row">
+									<div class="input-field col s12">
+                                      {% csrf_token %}
+									  <input id="newsspwd" name="newsspwd" type="text" required>
+									  <label for="newsspwd">新密码</label>
+									</div>
+								  </div>
+                                  <button type="submit" class="waves-effect waves-light btn">修改</button>
+								</form>
+
+
+							<div class="clearBoth"></div>
+							</div>
+							</div>
+							</div>
+							 <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-action">
+                            加密方式
+                        </div>
+                        <div class="card-content">
+						
+                            <form action="/accounts/profile/setting/method/" method="post">
+                                {% csrf_token %}
+                                {% for method in method_list %}
+                                {% if method == order_method %}
+                                <p>
+                                  <input name="group1" type="radio" id="test{{ forloop.counter }}" disabled="disabled"/>
+                                    <label for="test{{ forloop.counter }}">{{ method }} (正在使用)</label>
+                                </p>
+                                {% else %}
+                                <p>
+                                  <input name="group1" type="radio" id="test{{ forloop.counter }}" value="{{ method }}"/>
+                                  <label for="test{{ forloop.counter }}">{{ method }}</label>
+                                </p>
+                                {% endif %}
+                                {% endfor %}
+                                <button type="submit" class="waves-effect waves-light btn">修改</button>
+                            </form>
+
+        
+                                </div>
+                               
+                            </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                <!-- /.col-lg-12 --> 
+			<footer><p>All right reserved by: <a href="/">Mofadog</a></p></footer>
+			</div>
+             <!-- /. PAGE INNER  -->
+
+
+
+{% endblock content %}

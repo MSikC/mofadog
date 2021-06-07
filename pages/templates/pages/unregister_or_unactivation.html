@@ -1,0 +1,32 @@
+{% extends "registration/registration_base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Activation email sent" %}{% endblock %}
+
+{% block content %}
+
+<section id="#register">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>粗错啦</h2>
+                <hr class="star-primary">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <ol>
+                    <li>{% trans "您是否还未注册?" %}</li>
+                    <li>{% trans "您是否还未邮箱激活?" %}</li>
+                    <li>{% trans "您是否输错账号密码?" %}</li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <span><a href="/accounts/login/">  重新登陆</a></span>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

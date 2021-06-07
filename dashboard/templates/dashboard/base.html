@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>用户后台</title>
+    <link rel="shortcut icon" href="{% static 'pages/img/favicon.ico' %}" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="{% static 'dashboard/assets/materialize/css/materialize.min.css' %}" media="screen,projection" />
+    <!-- Bootstrap Styles-->
+    <link href="{% static 'dashboard/assets/css/bootstrap.css' %}" rel="stylesheet" />
+    <!-- FontAwesome Styles-->
+    <link href="{% static 'dashboard/assets/css/font-awesome.css' %}" rel="stylesheet" />
+    <!-- Morris Chart Styles-->
+    <link href="{% static 'dashboard/assets/js/morris/morris-0.4.3.min.css' %}" rel="stylesheet" />
+    <!-- Custom Styles-->
+    <link href="{% static 'dashboard/assets/css/custom-styles.css' %}" rel="stylesheet" />
+    <!-- Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="{% static 'dashboard/assets/js/Lightweight-Chart/cssCharts.css' %}">
+</head>
+
+<body>
+    <div id="wrapper">
+    {% block header %} {% include "dashboard/nav.html" %} {% endblock header %}
+    {% block nav2 %} {% endblock nav2 %}
+
+        <div id="page-wrapper">
+        {% block content %} {% endblock content %}
+        </div>
+    </div>
+    {% block footer %} {% include "dashboard/footer.html" %} {% endblock footer %}
+
+
+</body>
+</html>

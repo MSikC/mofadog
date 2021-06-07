@@ -1,0 +1,140 @@
+{% extends "dashboard/base.html" %}
+{% load static %}
+
+
+{% block nav2 %}
+	   <!--/. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+
+                    <li>
+                        <a class="waves-effect waves-dark" href="/sudashboard/I"><i class="fa fa-table"></i> 浏览日志</a>
+                    </li>
+                    <li>
+                        <a href="/sudashboard/F" class="active-menu waves-effect waves-dark"><i class="fa fa-dashboard"></i> 流量概况</a>
+                    </li>
+					<li>
+                        <a href="/sudashboard/A" class="waves-effect waves-dark"><i class="fa fa-shopping-cart"></i> 激活码</a>
+                    </li>
+                    <li>
+                        <a href="/sudashboard/O" class="waves-effect waves-dark"><i class="fa fa-edit"></i> 用户订单</a>
+                    </li>
+
+                    <li>
+                        <a href="/sudashboard/N" class="waves-effect waves-dark"><i class="fa fa-table"></i> 未知</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </nav>
+        <!-- /. NAV SIDE  -->
+{% endblock nav2 %}
+
+{% block content %}
+
+		  <div class="header">
+                        <h1 class="page-header">
+                            订购记录
+                        </h1>
+						<ol class="breadcrumb">
+					  <li><a href="#">主页</a></li>
+					  <li><a href="#">订购记录</a></li>
+					  <li class="active">详情</li>
+					</ol>
+
+		</div>
+
+            <div id="page-inner">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Advanced Tables -->
+                    <div class="card">
+                        <div class="card-action">
+                             历史订单
+                        </div>
+                        <div class="card-content">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>时间</th>
+                                            <th>流量/MB</th>
+                                            <th>时间</th>
+                                            <th>请求</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        {% for cron,m_flow in zipped %}
+                                        <tr class="gradeA">
+                                            <td>{{ cron.beat_date }}</td>
+                                            <td>{{ m_flow }}</td>
+                                            <td>-</td>
+                                            <td class="center">-</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                        <div class="card-action">
+                             今日总流量：{{ total_m_flows }}M
+                        </div>
+
+
+
+                    </div>
+                    <!--End Advanced Tables -->
+
+                </div>
+            </div>
+
+
+               <footer><p>All right reserved. Template by: <a href="https://webthemez.com/admin-template/">WebThemez.com</a></p></footer>
+    </div>
+             <!-- /. PAGE INNER  -->
+{% endblock content %}
+         <!-- /. PAGE WRAPPER  -->
+     <!-- /. WRAPPER  -->
+    <!-- JS Scripts-->
+
+{% block footer %}
+    <!-- jQuery Js -->
+    <script src="{% static 'dashboard/assets/js/jquery-1.10.2.js' %}"></script>
+
+	<!-- Bootstrap Js -->
+    <script src="{% static 'dashboard/assets/js/bootstrap.min.js' %}"></script>
+
+	<script src="{% static 'dashboard/assets/materialize/js/materialize.min.js' %}"></script>
+
+    <!-- Metis Menu Js -->
+    <script src="{% static 'dashboard/assets/js/jquery.metisMenu.js' %}"></script>
+    <!-- Morris Chart Js -->
+    <script src="{% static 'dashboard/assets/js/morris/raphael-2.1.0.min.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/morris/morris.js' %}"></script>
+
+
+	<script src="{% static 'dashboard/assets/js/easypiechart.js' %}"></script>
+	<script src="{% static 'dashboard/assets/js/easypiechart-data.js' %}"></script>
+
+	 <script src="{% static 'dashboard/assets/js/Lightweight-Chart/jquery.chart.js' %}"></script>
+	 <!-- DATA TABLE SCRIPTS -->
+    <script src="{% static 'dashboard/assets/js/dataTables/jquery.dataTables.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/dataTables/dataTables.bootstrap.js' %}"></script>
+        <script>
+            $(document).ready(function () {
+                $('#dataTables-example').dataTable();
+            });
+    </script>
+    <!-- Custom Js -->
+    <script src="{% static 'dashboard/assets/js/custom-scripts.js' %}"></script>
+{% endblock footer %}
+
+</body>
+
+</html>

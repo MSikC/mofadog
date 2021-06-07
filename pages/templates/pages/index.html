@@ -1,0 +1,504 @@
+{% extends "pages/base.html" %}
+{% load static %}
+<!-- Header -->
+{% block header %}
+{% include "pages/nav_index.html" %}
+{% endblock header %}
+{% block content %}
+<header>
+    <div class="container" id="maincontent" tabindex="-1">
+        <div class="row">
+            <div class="col-lg-12">
+                <img class="img-responsive" src="{% static 'pages/img/logo.png' %}" alt="">
+                <div class="intro-text">
+                    <h1 class="name">Start Accelerating</h1>
+                    <hr class="star-light">
+                    <span class="skills">稳定快速 —— PC/Mac/安卓/iPhone全平台支持 —— 魔法上网</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Portfolio Grid Section -->
+<section id="portfolio" style="padding: 60px 0;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>套餐详情</h2>
+                <hr class="star-primary">
+            </div>
+        </div>
+        <div class="row">
+            <div class="wrapper">
+                <!-- PRICING-TABLE CONTAINER -->
+                <div class="pricing-table group" style="margin: 20px auto;width: 100%;">
+                    <!-- PERSONAL -->
+                    <div class="col-lg-4">
+                        <!--<div class="block personal fl">-->
+                        <h2 class="title" style="background: #78CFBF;">试用</h2>
+                        <!-- CONTENT -->
+                        <div class="content" style="background: #82DACA;">
+                            <p class="price">
+                                <sup>￥</sup>
+                                <span>0</span>
+                                <sub>/3小时</sub>
+                            </p>
+                            <p class="hint">注册即送免费体验</p>
+                        </div>
+                        <!-- /CONTENT -->
+                        <!-- FEATURES -->
+                        <ul class="features" style="font-size:1.5rem;">
+                            <li><span class="fontawesome-cog"></span>3小时畅玩体验</li>
+                            <li><span class="fontawesome-star"></span>PC、安卓IOS全终端支持</li>
+                            <li><span class="fontawesome-dashboard"></span>3个美国顶级节点</li>
+                            <li><span class="fontawesome-cloud"></span>数据加密</li>
+                        </ul>
+                        <!-- /FEATURES -->
+                        <!-- PT-FOOTER -->
+                        <div class="pt-footer" style="background: #82DACA">
+                            <a class="pt-footer" href="/payment/T/">
+                                <p>免费领取</p>
+                            </a>
+                        </div>
+                        <!-- /PT-FOOTER -->
+                    </div>
+                    <!-- /PERSONAL -->
+                    <!-- PROFESSIONAL -->
+                    <div class="col-lg-4">
+                        <h2 class="title" style="background: #3EC6E0;">月套餐</h2>
+                        <!-- CONTENT -->
+                        <div class="content" style="background: #53CFE9;">
+                            <p class="price">
+                                <sup>￥</sup>
+                                <span>9.8</span>
+                                <sub>/月</sub>
+                            </p>
+                            <p class="hint">
+                                <del>原价：￥19.9</del>
+                            </p>
+                        </div>
+                        <!-- /CONTENT -->
+                        <!-- FEATURES -->
+                        <ul class="features" style="font-size:1.5rem;">
+                            <li><span class="fontawesome-cog"></span>无限流量</li>
+                            <li><span class="fontawesome-star"></span>PC、安卓IOS全终端支持</li>
+                            <li><span class="fontawesome-dashboard"></span>3个美国顶级节点</li>
+                            <li><span class="fontawesome-cloud"></span>数据加密</li>
+                        </ul>
+                        <!-- /FEATURES -->
+                        <!-- PT-FOOTER -->
+                        <div class="pt-footer" style="background: #53CFE9;">
+                            <a class="pt-footer" href="/payment/M/">
+                                <p>订购</p>
+                            </a>
+                        </div>
+                        <!-- /PT-FOOTER -->
+                    </div>
+                    <!-- /PROFESSIONAL -->
+                    <!-- BUSINESS -->
+                    <div class="col-lg-4">
+                        <h2 class="title" style="background: #E3536C;">年套餐</h2>
+                        <!-- CONTENT -->
+                        <div class="content" style="background: #EB6379;">
+                            <p class="price">
+                                <sup>￥</sup>
+                                <span>88.8</span>
+                                <sub>/年</sub>
+                            </p>
+                            <p class="hint">
+                                <del>原价：￥199</del>
+                            </p>
+                        </div>
+                        <!-- /CONTENT -->
+                        <!-- FEATURES -->
+                        <ul class="features" style="font-size:1.5rem;">
+                            <li><span class="fontawesome-cog"></span>无限流量</li>
+                            <li><span class="fontawesome-star"></span>PC、安卓IOS全终端支持</li>
+                            <li><span class="fontawesome-dashboard"></span>3个美国顶级节点</li>
+                            <li><span class="fontawesome-cloud"></span>数据加密</li>
+                        </ul>
+                        <!-- /FEATURES -->
+                        <!-- PT-FOOTER -->
+                        <div class="pt-footer" style="background: #EB6379;">
+                            <a class="pt-footer" href="/payment/Y/">
+                                <p>订购</p>
+                            </a>
+                        </div>
+                        <!-- /PT-FOOTER -->
+                    </div>
+                    <!-- /BUSINESS -->
+                </div>
+                <!-- /PRICING-TABLE -->
+            </div>
+            <!--
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="{% static 'pages/img/portfolio/cabin.png' %}" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="{% static 'pages/img/portfolio/cake.png' %}" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="{% static 'pages/img/portfolio/circus.png' %}" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="{% static 'pages/img/portfolio/game.png' %}" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="{% static 'pages/img/portfolio/safe.png' %}" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="{% static 'pages/img/portfolio/submarine.png' %}" class="img-responsive" alt="">
+                    </a>
+                </div>
+                -->
+        </div>
+    </div>
+</section>
+<!-- About Section -->
+<section class="success" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>介绍</h2>
+                <hr class="star-light">
+            </div>
+        </div>
+        <div class="row">
+            <!--
+            <div class="col-lg-4 col-lg-offset-2">
+                <p>只做精品，专注于高速</p>
+            </div>
+            <div class="col-lg-4">
+                <p>支持退款，灵活，无忧</p>
+            </div>
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <a href="#" class="btn btn-lg btn-outline">
+                        <i class="fa fa-download"></i> 视频演示
+                    </a>
+            </div>
+            -->
+            <div class="text-center">
+                <video width="85%" height="85%" controls>
+                    <source src="{% static 'pages/video/intro1.0.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact Section -->
+{% if request.user.is_authenticated %}
+{% else %}
+<section id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>登陆</h2>
+                <hr class="star-primary">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+                <form action="/login/" method="post" name="login" id="login" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label for="email">邮箱</label>
+                            <input type="email" class="form-control" placeholder="邮箱地址" name="email" id="email" required data-validation-required-message="Please enter your email address.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label for="password">密码</label>
+                            <input type="password" class="form-control" placeholder="密码" name="password" id="password" required data-validation-required-message="Please enter your phone number.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div id="success"></div>
+                    <div class="row">
+                        <div class="form-group col-xs-12">
+                            <button type="submit" class="btn btn-success btn-lg">提交</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+<div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
+    <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+</div>
+<!-- Portfolio Modals -->
+<!--
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Project Title</h2>
+                            <hr class="star-primary">
+                            <img src="{% static 'pages/img/portfolio/cabin.png' %}" class="img-responsive img-centered" alt="">
+                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                            <ul class="list-inline item-details">
+                                <li>Client:
+                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
+                                    </strong>
+                                </li>
+                                <li>Date:
+                                    <strong><a href="http://startbootstrap.com">April 2014</a>
+                                    </strong>
+                                </li>
+                                <li>Service:
+                                    <strong><a href="http://startbootstrap.com">Web Development</a>
+                                    </strong>
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Project Title</h2>
+                            <hr class="star-primary">
+                            <img src="{% static 'pages/img/portfolio/cake.png' %}" class="img-responsive img-centered" alt="">
+                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                            <ul class="list-inline item-details">
+                                <li>Client:
+                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
+                                    </strong>
+                                </li>
+                                <li>Date:
+                                    <strong><a href="http://startbootstrap.com">April 2014</a>
+                                    </strong>
+                                </li>
+                                <li>Service:
+                                    <strong><a href="http://startbootstrap.com">Web Development</a>
+                                    </strong>
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Project Title</h2>
+                            <hr class="star-primary">
+                            <img src="{% static 'pages/img/portfolio/circus.png' %}" class="img-responsive img-centered" alt="">
+                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                            <ul class="list-inline item-details">
+                                <li>Client:
+                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
+                                    </strong>
+                                </li>
+                                <li>Date:
+                                    <strong><a href="http://startbootstrap.com">April 2014</a>
+                                    </strong>
+                                </li>
+                                <li>Service:
+                                    <strong><a href="http://startbootstrap.com">Web Development</a>
+                                    </strong>
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Project Title</h2>
+                            <hr class="star-primary">
+                            <img src="{% static 'pages/img/portfolio/game.png' %}" class="img-responsive img-centered" alt="">
+                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                            <ul class="list-inline item-details">
+                                <li>Client:
+                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
+                                    </strong>
+                                </li>
+                                <li>Date:
+                                    <strong><a href="http://startbootstrap.com">April 2014</a>
+                                    </strong>
+                                </li>
+                                <li>Service:
+                                    <strong><a href="http://startbootstrap.com">Web Development</a>
+                                    </strong>
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Project Title</h2>
+                            <hr class="star-primary">
+                            <img src="{% static 'pages/img/portfolio/safe.png' %}" class="img-responsive img-centered" alt="">
+                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                            <ul class="list-inline item-details">
+                                <li>Client:
+                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
+                                    </strong>
+                                </li>
+                                <li>Date:
+                                    <strong><a href="http://startbootstrap.com">April 2014</a>
+                                    </strong>
+                                </li>
+                                <li>Service:
+                                    <strong><a href="http://startbootstrap.com">Web Development</a>
+                                    </strong>
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Project Title</h2>
+                            <hr class="star-primary">
+                            <img src="{% static 'pages/img/portfolio/submarine.png' %}" class="img-responsive img-centered" alt="">
+                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                            <ul class="list-inline item-details">
+                                <li>Client:
+                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
+                                    </strong>
+                                </li>
+                                <li>Date:
+                                    <strong><a href="http://startbootstrap.com">April 2014</a>
+                                    </strong>
+                                </li>
+                                <li>Service:
+                                    <strong><a href="http://startbootstrap.com">Web Development</a>
+                                    </strong>
+                                </li>
+                            </ul>
+                            <button id="btnSubmit" type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    -->
+{% endblock content %}
+{% block footer %} {% include "pages/footer_home.html" %} {% endblock footer %}

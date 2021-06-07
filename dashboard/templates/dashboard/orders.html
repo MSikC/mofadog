@@ -1,0 +1,139 @@
+﻿{% extends "dashboard/base.html" %}
+{% load static %}
+
+
+{% block nav2 %}
+	   <!--/. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+
+                    <li>
+                        <a class="waves-effect waves-dark" href="/accounts/profile"><i class="fa fa-dashboard"></i> 后台面板</a>
+                    </li>
+                    <li>
+                        <a href="/accounts/profile/setting" class="waves-effect waves-dark"><i class="fa fa-gear"></i> 设置</a>
+                    </li>
+					<li>
+                        <a href="/accounts/profile/orders" class="active-menu waves-effect waves-dark"><i class="fa fa-shopping-cart"></i> 订购记录</a>
+                    </li>
+                    <li>
+                        <a href="/accounts/profile/feedback" class="waves-effect waves-dark"><i class="fa fa-edit"></i> 意见反馈</a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'dashboard:notice' %}" class="waves-effect waves-dark"><i class="fa fa-table"></i> 公告</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </nav>
+        <!-- /. NAV SIDE  -->
+{% endblock nav2 %}
+
+{% block content %}
+
+		  <div class="header"> 
+                        <h1 class="page-header">
+                            订购记录
+                        </h1>
+						<ol class="breadcrumb">
+					  <li><a href="#">主页</a></li>
+					  <li><a href="#">订购记录</a></li>
+					  <li class="active">详情</li>
+					</ol> 
+									
+		</div>
+		
+            <div id="page-inner"> 
+               
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Advanced Tables -->
+                    <div class="card">
+                        <div class="card-action">
+                             历史订单
+                        </div>
+                        <div class="card-content">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>套餐类型</th>
+                                            <th>订购日期</th>
+                                            <th>生效日期</th>
+                                            <th>订单状态</th>
+                                            <th>价格</th>
+                                        </tr>
+                                    </thead>
+                                    {% for plan, ho, status, price in zipped %}
+                                    <tbody>
+                                        <tr class="odd gradeX">
+                                            <td>{{ plan }}</td>
+                                            <td>{{ ho.order_date }}</td>
+                                            <td>{{ ho.valid_date }}——{{ ho.dead_date }}</td>
+                                            <td class="center">{{ status }}</td>
+                                            <td class="center">¥{{ price }}</td>
+                                        </tr>
+                                    </tbody>
+                                    {% endfor %}
+                                </table>
+                            </div>
+                            
+                        </div>
+                        <div class="card-action">
+                             <a href="/#portfolio" class="waves-effect waves-light btn">续订套餐</a>
+                        </div>
+
+                    </div>
+                    <!--End Advanced Tables -->
+                </div>
+            </div>
+
+
+         
+               <footer><p>All right reserved by: <a href="/">Mofadog</a></p></footer>
+    </div>
+             <!-- /. PAGE INNER  -->
+{% endblock content %}
+         <!-- /. PAGE WRAPPER  -->
+     <!-- /. WRAPPER  -->
+    <!-- JS Scripts-->
+ 
+{% block footer %}
+    <!-- jQuery Js -->
+    <script src="{% static 'dashboard/assets/js/jquery-1.10.2.js' %}"></script>
+
+	<!-- Bootstrap Js -->
+    <script src="{% static 'dashboard/assets/js/bootstrap.min.js' %}"></script>
+
+	<script src="{% static 'dashboard/assets/materialize/js/materialize.min.js' %}"></script>
+
+    <!-- Metis Menu Js -->
+    <script src="{% static 'dashboard/assets/js/jquery.metisMenu.js' %}"></script>
+    <!-- Morris Chart Js -->
+    <script src="{% static 'dashboard/assets/js/morris/raphael-2.1.0.min.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/morris/morris.js' %}"></script>
+
+
+	<script src="{% static 'dashboard/assets/js/easypiechart.js' %}"></script>
+	<script src="{% static 'dashboard/assets/js/easypiechart-data.js' %}"></script>
+
+	 <script src="{% static 'dashboard/assets/js/Lightweight-Chart/jquery.chart.js' %}"></script>
+	 <!-- DATA TABLE SCRIPTS -->
+    <script src="{% static 'dashboard/assets/js/dataTables/jquery.dataTables.js' %}"></script>
+    <script src="{% static 'dashboard/assets/js/dataTables/dataTables.bootstrap.js' %}"></script>
+        <script>
+            $(document).ready(function () {
+                $('#dataTables-example').dataTable();
+            });
+    </script>
+    <!-- Custom Js -->
+    <script src="{% static 'dashboard/assets/js/custom-scripts.js' %}"></script>
+{% endblock footer %}
+
+</body>
+
+</html>

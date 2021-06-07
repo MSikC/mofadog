@@ -1,0 +1,44 @@
+{% extends "pages/base.html" %}
+{% load static %}
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <form id='payform' name='payform' method='post' action='https://pay.ispay.cn/core/api/request/pay/'>
+                {% csrf_token %}
+                <input name='payId' id='payId' type='hidden' value='{{payId}}' />
+                <input name='payChannel' id='payChannel' type='hidden' value='{{payChannel}}' />
+                <input name='Subject' id='Subject' type='hidden' value='{{Subject}}'/>
+                <input name='Money' id='Money' type='hidden' value='{{Money}}'/>
+                <input name='orderNumber' id='orderNumber' type='hidden' value='{{orderNumber}}'/>
+                <input name='attachData' id='attachData' type='hidden' value='{{attachData}}'/>
+                <input name='Notify_url' id='Notify_url' type='hidden' value='{{Notify_url}}'/>
+                <input name='Return_url' id='Return_url' type='hidden' value='{{Return_url}}'/>
+                <input name='Sign' id='Sign' type='hidden' value='{{Sign}}'/>
+                <div class="row">
+                    <div class="form-group col-xs-12">
+                        <button type="submit" class="btn btn-success btn-lg">提交</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}

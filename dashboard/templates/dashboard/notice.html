@@ -1,0 +1,76 @@
+﻿{% extends "dashboard/base.html" %}
+{% load static %}
+
+
+{% block nav2 %}
+<!--/. NAV TOP  -->
+<nav class="navbar-default navbar-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav" id="main-menu">
+
+            <li>
+                <a class="waves-effect waves-dark" href="/accounts/profile"><i class="fa fa-dashboard"></i> 后台面板</a>
+            </li>
+            <li>
+                <a href="/accounts/profile/setting" class="waves-effect waves-dark"><i class="fa fa-gear"></i> 设置</a>
+            </li>
+            <li>
+                <a href="/accounts/profile/orders" class="waves-effect waves-dark"><i class="fa fa-shopping-cart"></i>
+                    订购记录</a>
+            </li>
+            <li>
+                <a href="/accounts/profile/feedback" class="waves-effect waves-dark"><i class="fa fa-edit"></i> 意见反馈</a>
+            </li>
+
+            <li>
+                <a href="{% url 'dashboard:notice' %}" class="active-menu waves-effect waves-dark"><i
+                        class="fa fa-table"></i> 公告</a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</nav>
+<!-- /. NAV SIDE  -->
+{% endblock nav2 %}
+{% block content %}
+
+<div class="header">
+    <h1 class="page-header">
+        公告
+        <small></small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#">主页</a></li>
+        <li><a href="#">公告</a></li>
+        <li class="active">详情</li>
+    </ol>
+
+</div>
+<div id="page-inner">
+
+    <div class="row">
+
+        <div class="col-md-12">
+            {% for n in notices %}
+            <div class="card">
+                <div class="card-action">
+                    {{ n.title }}
+                    <small>{{ n.pub_date }}</small>
+                </div>
+
+                <div class="card-content">
+
+                    <p>{{ n.text }}</p>
+                    <div class="clearBoth"><br/></div>
+
+                </div>
+            </div>
+            {% endfor %}
+            <footer><p>All right reserved by: <a href="/">Mofadog</a></p></footer>
+        </div>
+        <!-- /. PAGE INNER  -->
+        {% endblock content %}
+        <!-- /. PAGE WRAPPER  -->
+

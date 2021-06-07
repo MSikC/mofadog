@@ -1,0 +1,173 @@
+{% extends "dashboard/base.html" %} {% load static %} {% block nav2 %}
+<!--/. NAV TOP  -->
+<nav class="navbar-default navbar-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav" id="main-menu">
+            <li>
+                <a class="active-menu waves-effect waves-dark" href="/accounts/profile"><i class="fa fa-dashboard"></i> 后台面板</a>
+            </li>
+            <li>
+                <a href="/accounts/profile/setting" class="waves-effect waves-dark"><i class="fa fa-gear"></i> 设置</a>
+            </li>
+            <li>
+                <a href="/accounts/profile/orders" class="waves-effect waves-dark"><i class="fa fa-shopping-cart"></i> 订购记录</a>
+            </li>
+            <li>
+                <a href="/accounts/profile/feedback" class="waves-effect waves-dark"><i class="fa fa-edit"></i> 意见反馈</a>
+            </li>
+            <li>
+                <a href="{% url 'dashboard:notice' %}" class="waves-effect waves-dark"><i class="fa fa-table"></i> 公告</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!-- /. NAV SIDE  -->
+{% endblock nav2 %} {% block content %}
+<div class="header">
+    <h1 class="page-header">
+                后台面板
+            </h1>
+    <ol class="breadcrumb">
+        <li><a href="#">主页</a></li>
+        <li><a href="#">后台面板</a></li>
+        <li class="active">详情</li>
+    </ol>
+</div>
+<div id="page-inner">
+    <div class="row">
+        <div class="col-md-6 col-sm-6">
+            <div class="card">
+                <div class="card-action">
+                    客户端下载
+                </div>
+                <div class="card-content">
+                    <div>
+                        <ul class="tabs">
+                            <li class="tab col s3"><a class="active" href="#test1">win</a></li>
+                            <li class="tab col s3"><a href="#test2">mac</a></li>
+                            <li class="tab col s3"><a href="#test3">安卓</a></li>
+                            <li class="tab col s3"><a href="#test4">iphone</a></li>
+                        </ul>
+                    </div>
+                    <div class="clearBoth">
+                        <br/>
+                    </div>
+                    <div id="test1" class="col s12">
+                        <ol>
+                            <li>下载并解压客户端</li>
+                            <li>打开即可使用</li>
+                            <li>右键点击右下角“纸飞机”图标——服务器——切换节点</li>
+                        </ol>
+                        <br>
+                        <ul>
+                            <li><a href="{% url 'dashboard:zipdownload' %}" class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>下载Windows客户端</a></li>
+                        </ul>
+                    </div>
+                    <div id="test2" class="col s12">
+                        <ol>
+                            <li>下载安装并打开客户端</li>
+                            <li>点开本页面“节点列表”下的二维码</li>
+                            <li>右键点击“纸飞机”图标——从屏幕上扫描二维码——扫描第2步的二维码（共3个节点），也可手动填写地址端口密码加密方法</li>
+                            <li>服务器——选择节点</li>
+                            <li>打开shadowsocks</li>
+                        </ol>
+                        <br>
+                        <ul>
+                            <li><a href="/static/download/ShadowsocksX-NG.1.5.1.zip" class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>下载MAC客户端</a></li>
+                        </ul>
+                    </div>
+                    <div id="test3" class="col s12">
+                        <ol>
+                            <li>下载客户端</li>
+                            <li>把客户端发送至安卓手机并安装（可以通过微信，usb等方式发送）</li>
+                            <li>扫描本页面"节点列表"下的二维码依次添加节点（或PC客户端打开后，右键点击'纸飞机'--服务器--分享服务器配置）</li>
+                            <li>选择节点，点击连接图标（蓝色纸飞机）</li>
+                            <li>安卓客户端自带一个无效广告节点，删除即可</li>
+                        </ol>
+                        <br>
+                        <ul>
+                            <li><a href="/static/download/shadowsocks-nightly-4.2.1.apk" class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>下载安卓APK</a></li>
+                        </ul>
+                    </div>
+                    <div id="test4" class="col s12">
+                        <ol>
+                            <li>App Store搜索并安装firstwingy，或任意支持socks5代理的app</li>
+                            <li>打开firstwingy，扫描本页面"节点列表"下的全部二维码添加节点（或PC客户端打开后，右键点击'纸飞机'--服务器--分享服务器配置）</li>
+                            <li>选择节点，连接</li>
+                        </ol>
+                    </div>
+                    <div class="clearBoth">
+                        <br/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="card-panel text-center">
+                <h4>本月流量已用：{{ flow_text }}</h4>
+                <div class="easypiechart" id="easypiechart-teal" data-percent="100"><span class="percent">100%</span>
+                </div>
+                <h5>（本套餐不限流量）</h5>
+                <h5>最近一次连接时间：{{ lastconntime }}</h5>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="card-panel text-center">
+                {% if remaining_time >= 0 %} {% if plan_try %}
+                <h4>套餐剩余：{{ remaining_time }}分钟</h4> {% else %}
+                <h4>套餐剩余：{{ remaining_time }}日</h4> {% endif %}
+                <div class="easypiechart" id="easypiechart-orange" data-percent="{{ remaining_per }}"><span class="percent">{{ remaining_per }}%</span>
+                </div>
+                {% else %}
+                <h4>套餐已失效</h4>
+                <div class="easypiechart" id="easypiechart-orange" data-percent="0"><span class="percent">0%</span>
+                </div>
+                {% endif %}
+                <h5>订购日期：{{ order_date }}</h5>
+                <h5>(详细信息参见订购记录)</h5>
+                <a href="/#portfolio" target="view_window" class="waves-effect waves-light btn">续订</a>
+                <a href="/accounts/profile/orders" class="waves-effect waves-light btn">订购记录</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-sm-6">
+            <div class="card">
+                <div class="card-action">
+                    节点列表
+                </div>
+                <div class="card-content">
+                    <ul class="collapsible" data-collapsible="accordion">
+                        {% for node, qrcode in zipped %}
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">filter_drama</i>{{ node.ip }}({{ node.Remark }})</div>
+                            <div class="collapsible-body">
+                                <p>服务器地址：{{ node.ip }}
+                                    <br>服务器端口：{{ port }}
+                                    <br>密码：{{ sspwd }}（留意不要复制空格）
+                                    <br>加密方法：{{ method }}</p>
+                                <img src="/static/qrcode/{{ request.user.email }}/{{ qrcode }}" style="max-width:100%;">
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <a href="/payment/qrcoderenew" class="waves-effect waves-light btn"><i class="material-icons left">autorenew</i>更新二维码</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fixed-action-btn horizontal click-to-toggle">
+        <a class="btn-floating btn-large red">
+      <i class="material-icons">menu</i>
+    </a>
+        <ul>
+            <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+            <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+            <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+            <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+        </ul>
+    </div>
+    <footer><p>All right reserved by: <a href="/">Mofadog</a></p></footer>
+</div>
+<!-- /. PAGE INNER  -->
+{% endblock content %}
